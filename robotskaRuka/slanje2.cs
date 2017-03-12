@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace robotskaRuka
@@ -26,7 +19,7 @@ namespace robotskaRuka
         bool portFound;
 
         byte[] naredba = new byte[20];
-        
+
 
         // spremanje kuteva
         public void btnSpremi_Click(object sender, EventArgs e)
@@ -183,7 +176,7 @@ namespace robotskaRuka
             try
             {
                 // "handshake" naredba
-                byte[] buffer = new byte[5];
+                byte[] buffer = new byte[11];
                 buffer[0] = Convert.ToByte(16);
                 buffer[1] = Convert.ToByte(128);
                 buffer[2] = Convert.ToByte(0);
@@ -192,7 +185,7 @@ namespace robotskaRuka
                 int intReturnASCII = 0;
                 char charReturnValue = (Char)intReturnASCII;
                 currentPort.Open();
-                currentPort.Write(buffer, 0, 5);
+                currentPort.Write(buffer, 0, 11);
                 Thread.Sleep(1000);
                 int count = currentPort.BytesToRead;
                 string returnMessage = "";
@@ -220,6 +213,7 @@ namespace robotskaRuka
                 return false;
             }
         }
+
         private void btnAuto_Click(object sender, EventArgs e)
         {
             int baud = Convert.ToInt16(cmbBaudRate.Text);
@@ -253,177 +247,70 @@ namespace robotskaRuka
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            int servoSend;
-            int brojacKoraka;
-            int pozicija;
-           
             try
             {
-                for (brojacKoraka = 1; brojacKoraka <= 5; brojacKoraka++)
+                int polje = 0;
+                for (int brojacKoraka = 1; brojacKoraka <= 5; brojacKoraka++)
                 {
-                    for (servoSend = 1; servoSend <= 4; servoSend++)
+                    
+                    byte[] buffer = new byte[11];
+                    buffer[0] = Convert.ToByte(16);
+                    buffer[1] = Convert.ToByte(121);
+                    buffer[2] = Convert.ToByte(brojacKoraka);
+                    buffer[3] = naredba[polje];
+                    buffer[4] = Convert.ToByte(4);
+                    buffer[5] = naredba[polje+1];
+                    buffer[6] = Convert.ToByte(4);
+                    buffer[7] = naredba[polje+2];
+                    buffer[8] = Convert.ToByte(4);
+                    buffer[9] = naredba[polje+3];
+                    buffer[10] = Convert.ToByte(4);
+
+                    int intReturnASCII = 0;
+                    char charReturnValue = (Char)intReturnASCII;
+
+                    currentPort.Open();
+                    currentPort.Write(buffer, 0, 11);
+                    Thread.Sleep(1000);
+
+                    try
                     {
-                        pozicija = brojacKoraka + 120;
-                        byte[] buffer = new byte[5];
-                        buffer[0] = Convert.ToByte(16);
-                        buffer[1] = Convert.ToByte(pozicija);
-                        buffer[2] = Convert.ToByte(servoSend);
-                        if (servoSend == 1 && brojacKoraka == 1)
+                        string returnMessage = "";
+                        while (!returnMessage.Contains("Pozicija"))
                         {
-                            buffer[3] = Convert.ToByte(naredba[0]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 2 && brojacKoraka == 1)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[1]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 3 && brojacKoraka == 1)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[2]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 4 && brojacKoraka == 1)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[3]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-
-                        else if (servoSend == 1 && brojacKoraka == 2)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[4]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 2 && brojacKoraka == 2)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[5]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 3 && brojacKoraka == 2)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[6]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 4 && brojacKoraka == 2)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[7]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-
-                        else if (servoSend == 1 && brojacKoraka == 3)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[8]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 2 && brojacKoraka == 3)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[9]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 3 && brojacKoraka == 3)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[10]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 4 && brojacKoraka == 3)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[11]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-
-                        else if (servoSend == 1 && brojacKoraka == 4)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[12]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 2 && brojacKoraka == 4)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[13]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 3 && brojacKoraka == 4)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[14]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 4 && brojacKoraka == 4)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[15]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-
-                        else if (servoSend == 1 && brojacKoraka == 5)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[16]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 2 && brojacKoraka == 5)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[17]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 3 && brojacKoraka == 5)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[18]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-                        else if (servoSend == 4 && brojacKoraka == 5)
-                        {
-                            buffer[3] = Convert.ToByte(naredba[19]);
-                            buffer[4] = Convert.ToByte(4);
-                        }
-
-                        int intReturnASCII = 0;
-                        char charReturnValue = (Char)intReturnASCII;
-
-                        currentPort.Open();
-                        currentPort.Write(buffer, 0, 5);
-                        Thread.Sleep(1000);
-
-                        try
-                        {
-
                             int count = currentPort.BytesToRead;
-                            string returnMessage = "";
                             while (count > 0)
                             {
                                 intReturnASCII = currentPort.ReadByte();
                                 returnMessage = returnMessage + Convert.ToChar(intReturnASCII);
                                 count--;
                             }
-
-                            
-                            if (returnMessage.Contains("Primljeno!"))
-                            {
-                                //    MessageBox.Show("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + servoSend + ".");
-                                textBox1.AppendText("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + servoSend + ".\n");
-                            }
-                            else
-                            {
-
-                                textBox1.AppendText("Pogreška slanja! Pozicija: " + brojacKoraka + ". servo: " + servoSend + ".\n");
-                            }
                         }
-                        catch (Exception ex)
+                        if (returnMessage.Contains("Pozicija"))
                         {
-                            MessageBox.Show("Nema povratne informacije!");
-                            
+                            //    MessageBox.Show("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + servoSend + ".");
+                            textBox1.AppendText("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + ".\n");
                         }
-                        currentPort.Close();
-
+                        else
+                        {
+                            textBox1.AppendText("Nešto ne valja! \n");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nema povratne informacije!");
 
                     }
+                    currentPort.Close();
+                    polje = polje + 4;
+
+
                 }
             }
             catch
             {
                 MessageBox.Show("Slanje nije uspjelo.");
             }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
