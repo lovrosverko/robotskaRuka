@@ -31,11 +31,11 @@ namespace robotskaRuka
         // osiguravanje zatvaranja porta kada se zatvori aplikacija
         private void Form1_FormClosed(Object sender, FormClosedEventArgs e)
         {
-            
+
             if (currentPort != null)
             {
                 currentPort.Close();
-                }
+            }
         }
 
         // ispis odabranih kuteva
@@ -116,14 +116,14 @@ namespace robotskaRuka
             {
                 servoPos1 = 80;
                 scrollServo1.Value = servoPos1;
-                
+
             }
             else
             {
                 servoPos1 = servoPos1 + 1;
                 scrollServo1.Value = servoPos1;
             }
-            showServoPos();            
+            showServoPos();
         }
 
         // povećavanje kuta za 1° - Servo 2 
@@ -178,7 +178,7 @@ namespace robotskaRuka
         {
             servoPos1 = scrollServo1.Value;
             showServoPos();
-            
+
         }
 
         // kontrola kuta pomoću scrollBar-a - Servo 2
@@ -201,7 +201,7 @@ namespace robotskaRuka
             servoPos4 = scrollServo4.Value;
             showServoPos();
         }
-        
+
         // pali LED
         private void button5_Click(object sender, EventArgs e)
         {
@@ -223,7 +223,7 @@ namespace robotskaRuka
             catch (Exception ex)
             { MessageBox.Show("Nisam spojen!"); }
         }
-        
+
         // pronalaženje COM porta na kojem je spojen Arduino
         public void button7_Click(object sender, EventArgs e)
         {
@@ -245,6 +245,7 @@ namespace robotskaRuka
                         cmbPort.Text = port;
                         portFound = true;
                         MessageBox.Show("Arduino je spojen na " + port);
+                        txtStatus.Text = "Spreman!";
                         break;
 
                     }
@@ -258,7 +259,7 @@ namespace robotskaRuka
             }
             catch (Exception e)
             {
-                
+
             }
         }
 
@@ -295,7 +296,7 @@ namespace robotskaRuka
                     count--;
                 }
 
-                txtStatus.Text = "Spreman!";
+
                 currentPort.Close();
                 if (returnMessage.Contains("Arduino je ovdje!"))
                 {
@@ -303,7 +304,7 @@ namespace robotskaRuka
                 }
                 else
                 {
-                        
+
                     return false;
                 }
             }
@@ -331,7 +332,7 @@ namespace robotskaRuka
                 currentPort.Open();
                 currentPort.Write(buffer, 0, 11);
                 Thread.Sleep(1000);
-                
+
                 int count = currentPort.BytesToRead;
                 string returnMessage = "";
                 while (count > 0)
@@ -347,7 +348,7 @@ namespace robotskaRuka
                 picLedOn.Visible = true;
             }
             catch { }
-            }
+        }
 
 
         // slanje naredbe za isključivanje LED-a
@@ -410,7 +411,7 @@ namespace robotskaRuka
                     count--;
                 }
 
-                txtStatus.Text = returnMessage;
+
                 currentPort.Close();
             }
             catch { }
@@ -442,7 +443,7 @@ namespace robotskaRuka
                     count--;
                 }
 
-                txtStatus.Text = returnMessage;
+
                 currentPort.Close();
             }
             catch { }
@@ -474,7 +475,7 @@ namespace robotskaRuka
                     count--;
                 }
 
-                txtStatus.Text = returnMessage;
+
                 currentPort.Close();
             }
             catch { }
@@ -506,20 +507,20 @@ namespace robotskaRuka
                     count--;
                 }
 
-                txtStatus.Text = returnMessage;
+
                 currentPort.Close();
             }
             catch { }
         }
-        
-        
+
+
         // otvaranje CopyRight forme
         private void oProgramuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             copyRight frmCopyRight = new copyRight();
             frmCopyRight.Show();
         }
-        
+
         // slanje pozicije za Servo 1
         private void btnServo1_Click(object sender, EventArgs e)
         {
@@ -532,9 +533,9 @@ namespace robotskaRuka
             {
                 sendServo1();
             }
-            
+
         }
-        
+
         // slanje pozicije za Servo 2
         private void btnServo2_Click(object sender, EventArgs e)
         {
@@ -576,7 +577,7 @@ namespace robotskaRuka
                 sendServo4();
             }
         }
-        
+
         // slanje svih pozicija odjednom
         private void btnPosaljiSve_Click(object sender, EventArgs e)
         {
@@ -585,7 +586,7 @@ namespace robotskaRuka
             sendServo3();
             sendServo4();
         }
-        
+
         // otvaranje forme za unos 5 pozicija
         private void button2_Click(object sender, EventArgs e)
         {

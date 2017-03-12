@@ -312,6 +312,16 @@ namespace robotskaRuka
                 MessageBox.Show("Slanje nije uspjelo.");
             }
         }
+
+        private void btnObrisi_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            for (int a = 0; a <= 10; a++)
+            {
+                naredba[a] = 0;
+            }
+            
+        }
     }
 }
 

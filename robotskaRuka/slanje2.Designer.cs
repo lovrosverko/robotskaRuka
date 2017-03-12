@@ -206,6 +206,7 @@
             this.btnObrisi.TabStop = false;
             this.btnObrisi.Text = "Obriši niz";
             this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // btnSaveToTxt
             // 
