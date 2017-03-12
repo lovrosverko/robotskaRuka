@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="copyRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="copyRight.Designer.cs">
+      <DependentUpon>copyRight.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="slanje2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="slanje2.Designer.cs">
+      <DependentUpon>slanje2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="copyRight.resx">
+      <DependentUpon>copyRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +80,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="slanje2.resx">
+      <DependentUpon>slanje2.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +97,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lijevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lijevo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Servo-01-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\servo_color-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zelenaLed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crvenaLed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copyright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roboticArm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

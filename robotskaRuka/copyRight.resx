@@ -117,35 +117,57 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="desno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\desno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Program kontrolira četiri servo motora
+robotske ruke.
+
+Davatelj licence dopušta umnožavanje, 
+distribuiranje i priopcavanje djela javnosti. 
+Zauzvrat primatelji licence moraju 
+imenovanjem priznati i oznaciti izvornog 
+autora.
+
+Izradio: Lovro Šverko, prof.
+Datum: 04.03.2017.
+</value>
   </data>
-  <data name="zelenaLed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zelenaLed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="servo_color-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\servo_color-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrowUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="copyright" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\copyright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Servo-01-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Servo-01-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lijevo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lijevo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="crvenaLed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\crvenaLed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lijevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lijevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="roboticArm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\roboticArm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
 </root>
