@@ -11,7 +11,7 @@ namespace robotskaRuka
         public slanje()
         {
             InitializeComponent();
-
+            //  btnSaveToTxt.Enabled = false;
         }
 
 
@@ -159,8 +159,7 @@ namespace robotskaRuka
                             txtServo4.Clear();
                             pozicija++;
                             btnSpremi.Enabled = false;
-                            string s2 = BitConverter.ToString(naredba);
-                            File.WriteAllText("pozicije.txt", s2);
+                            btnSaveToTxt.Enabled = true;
                             break;
                     }
 
@@ -317,12 +316,30 @@ namespace robotskaRuka
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            /*
+             * textBox1.Clear();
+            
             for (int a = 0; a <= 10; a++)
             {
                 naredba[a] = 0;
             }
-            
+            */
+            FileStream fs = new FileStream("testIO.txt", FileMode.Open);
+            int hexIn;
+            int dec;
+
+
+            for (int i = 0; (hexIn = fs.ReadByte()) != -1; i++)
+            {
+                dec = Convert.ToInt16(hexIn);
+                textBox1.AppendText(Convert.ToString(dec) + " - ");
+            }
+
+        }
+
+        private void btnSaveToTxt_Click(object sender, EventArgs e)
+        {
+            File.WriteAllBytes("testIO.txt", naredba);
         }
     }
 }

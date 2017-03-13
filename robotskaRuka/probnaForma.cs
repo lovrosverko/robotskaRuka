@@ -13,10 +13,27 @@ namespace robotskaRuka
             InitializeComponent();
         }
 
+        // this works
         private void btnPisi_Click(object sender, EventArgs e)
         {
             string zapis = BitConverter.ToString(polje);
-            File.WriteAllText("testIO.txt", zapis);
+            File.WriteAllBytes("testIO.txt", polje);
+        }
+
+        // doesn't quite work
+        private void btnCitaj_Click(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream("testIO.txt", FileMode.Open);
+            int hexIn;
+            int dec;
+            
+
+            for (int i = 0; (hexIn = fs.ReadByte()) != -1; i++)
+            {
+                dec = Convert.ToInt16(hexIn);
+                textBox1.AppendText(Convert.ToString(dec) + " - ");
+            }
+           
         }
     }
 }

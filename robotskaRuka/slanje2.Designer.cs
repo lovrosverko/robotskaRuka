@@ -204,7 +204,7 @@
             this.btnObrisi.Size = new System.Drawing.Size(75, 55);
             this.btnObrisi.TabIndex = 41;
             this.btnObrisi.TabStop = false;
-            this.btnObrisi.Text = "Obriši niz";
+            this.btnObrisi.Text = "Provjera spremanja";
             this.btnObrisi.UseVisualStyleBackColor = true;
             this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
@@ -217,6 +217,7 @@
             this.btnSaveToTxt.TabStop = false;
             this.btnSaveToTxt.Text = "Spremi u dokument";
             this.btnSaveToTxt.UseVisualStyleBackColor = true;
+            this.btnSaveToTxt.Click += new System.EventHandler(this.btnSaveToTxt_Click);
             // 
             // pictureBox1
             // 
