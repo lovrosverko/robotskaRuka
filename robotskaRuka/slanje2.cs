@@ -21,7 +21,7 @@ namespace robotskaRuka
         SerialPort currentPort;
         bool portFound;
 
-        byte[] naredba = new byte[9999];
+        byte[] naredba = new byte[99999];
 
 
         // spremanje kuteva
