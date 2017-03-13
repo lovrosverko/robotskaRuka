@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms;
@@ -158,7 +159,8 @@ namespace robotskaRuka
                             txtServo4.Clear();
                             pozicija++;
                             btnSpremi.Enabled = false;
-
+                            string s2 = BitConverter.ToString(naredba);
+                            File.WriteAllText("pozicije.txt", s2);
                             break;
                     }
 
