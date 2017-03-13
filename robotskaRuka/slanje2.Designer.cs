@@ -46,6 +46,8 @@
             this.btnObrisi = new System.Windows.Forms.Button();
             this.btnSaveToTxt = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtBrojKoraka = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,11 +230,29 @@
             this.pictureBox1.TabIndex = 43;
             this.pictureBox1.TabStop = false;
             // 
+            // txtBrojKoraka
+            // 
+            this.txtBrojKoraka.Location = new System.Drawing.Point(123, 5);
+            this.txtBrojKoraka.Name = "txtBrojKoraka";
+            this.txtBrojKoraka.Size = new System.Drawing.Size(100, 20);
+            this.txtBrojKoraka.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(229, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Broj pozicija";
+            // 
             // slanje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 331);
+            this.ClientSize = new System.Drawing.Size(616, 331);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtBrojKoraka);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSaveToTxt);
             this.Controls.Add(this.btnObrisi);
@@ -252,7 +272,8 @@
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "slanje";
-            this.Text = "Slanje 5 pozicija";
+            this.Text = "Slanje naredbi";
+            this.Load += new System.EventHandler(this.slanje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -278,5 +299,7 @@
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnSaveToTxt;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtBrojKoraka;
+        private System.Windows.Forms.Label label5;
     }
 }
