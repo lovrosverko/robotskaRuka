@@ -16,7 +16,7 @@ namespace robotskaRuka
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new slanje());
+            Application.Run(new Form1());
         }
     }
 }

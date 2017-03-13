@@ -51,7 +51,6 @@
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(12, 75);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
