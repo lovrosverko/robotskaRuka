@@ -105,134 +105,6 @@ namespace robotskaRuka
                     {
                         MessageBox.Show("Broj odabranih pozicija je postignut.");
                     }
-
-
-
-                    /*
-
-                        switch (pozicija)
-                        {
-                            case 1:
-                                naredba[0] = Convert.ToByte(txtServo1.Text);
-                                textBox1.AppendText("Hvataljka: " +
-                                    "\tPozicija: " + pozicija + "\t\tKut: " + naredba[0] + "\n");
-                                naredba[1] = Convert.ToByte(txtServo2.Text);
-                                textBox1.AppendText("Lakat: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[1] + "\n");
-                                naredba[2] = Convert.ToByte(txtServo3.Text);
-                                textBox1.AppendText("Rame: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[2] + "\n");
-                                naredba[3] = Convert.ToByte(txtServo4.Text);
-                                textBox1.AppendText("Baza: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[3] + "\n");
-                                textBox1.AppendText("Spremljena pozicija 1. " + "\n");
-
-                                txtServo1.Clear();
-                                txtServo2.Clear();
-                                txtServo3.Clear();
-                                txtServo4.Clear();
-                                pozicija++;
-
-
-                                break;
-
-                            case 2:
-                                naredba[4] = Convert.ToByte(txtServo1.Text);
-                                textBox1.AppendText("Hvataljka: " +
-                                    "\tPozicija: " + pozicija + "\t\tKut: " + naredba[4] + "\n");
-                                naredba[5] = Convert.ToByte(txtServo2.Text);
-                                textBox1.AppendText("Lakat: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[5] + "\n");
-                                naredba[6] = Convert.ToByte(txtServo3.Text);
-                                textBox1.AppendText("Rame: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[6] + "\n");
-                                naredba[7] = Convert.ToByte(txtServo4.Text);
-                                textBox1.AppendText("Baza: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[7] + "\n");
-                                textBox1.AppendText("Spremljena pozicija 2. " + "\n");
-
-                                txtServo1.Clear();
-                                txtServo2.Clear();
-                                txtServo3.Clear();
-                                txtServo4.Clear();
-                                pozicija++;
-
-
-                                break;
-                            case 3:
-                                naredba[8] = Convert.ToByte(txtServo1.Text);
-                                textBox1.AppendText("Hvataljka: " +
-                                    "\tPozicija: " + pozicija + "\t\tKut: " + naredba[8] + "\n");
-                                naredba[9] = Convert.ToByte(txtServo2.Text);
-                                textBox1.AppendText("Lakat: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[9] + "\n");
-                                naredba[10] = Convert.ToByte(txtServo3.Text);
-                                textBox1.AppendText("Rame: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[10] + "\n");
-                                naredba[11] = Convert.ToByte(txtServo4.Text);
-                                textBox1.AppendText("Baza: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[11] + "\n");
-                                textBox1.AppendText("Spremljena pozicija 3. " + "\n");
-
-                                txtServo1.Clear();
-                                txtServo2.Clear();
-                                txtServo3.Clear();
-                                txtServo4.Clear();
-                                pozicija++;
-
-
-                                break;
-
-                            case 4:
-                                naredba[12] = Convert.ToByte(txtServo1.Text);
-                                textBox1.AppendText("Hvataljka: " +
-                                    "\tPozicija: " + pozicija + "\t\tKut: " + naredba[12] + "\n");
-                                naredba[13] = Convert.ToByte(txtServo2.Text);
-                                textBox1.AppendText("Lakat: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[13] + "\n");
-                                naredba[14] = Convert.ToByte(txtServo3.Text);
-                                textBox1.AppendText("Rame: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[14] + "\n");
-                                naredba[15] = Convert.ToByte(txtServo4.Text);
-                                textBox1.AppendText("Baza: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[15] + "\n");
-                                textBox1.AppendText("Spremljena pozicija 4. " + "\n");
-
-                                txtServo1.Clear();
-                                txtServo2.Clear();
-                                txtServo3.Clear();
-                                txtServo4.Clear();
-                                pozicija++;
-
-
-                                break;
-
-                            case 5:
-                                naredba[16] = Convert.ToByte(txtServo1.Text);
-                                textBox1.AppendText("Hvataljka: " +
-                                    "\tPozicija: " + pozicija + "\t\tKut: " + naredba[16] + "\n");
-                                naredba[17] = Convert.ToByte(txtServo2.Text);
-                                textBox1.AppendText("Lakat: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[17] + "\n");
-                                naredba[18] = Convert.ToByte(txtServo3.Text);
-                                textBox1.AppendText("Rame: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[18] + "\n");
-                                naredba[19] = Convert.ToByte(txtServo4.Text);
-                                textBox1.AppendText("Baza: " +
-                                     "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[19] + "\n");
-                                textBox1.AppendText("Spremljena pozicija 5. " + "\n");
-
-                                txtServo1.Clear();
-                                txtServo2.Clear();
-                                txtServo3.Clear();
-                                txtServo4.Clear();
-                                pozicija++;
-                                btnSpremi.Enabled = false;
-                                btnSaveToTxt.Enabled = true;
-                                break;
-                        }
-                        */
-
                 }
                 catch (Exception)
                 {
@@ -447,7 +319,7 @@ namespace robotskaRuka
             /*
              * textBox1.Clear();
             
-            for (int a = 0; a <= 10; a++)
+            for (int a = 0; a <= 1000; a++)
             {
                 naredba[a] = 0;
             }
@@ -493,6 +365,7 @@ namespace robotskaRuka
             txtServo3.Enabled = false;
             txtServo4.Enabled = false;
         }
+
         private void prikazi()
         {
             btnSpremi.Enabled = true;

@@ -10,17 +10,24 @@ namespace robotskaRuka
     public partial class Form1 : Form
     {
         // postavljanje varijabli
+
         int servoPos1 = 80;
         int servoPos2 = 160;
         int servoPos3 = 70;
         int servoPos4 = 95;
-
+        int brojNaredbe = 0;
+        int pozicija = 1;
+        byte[] naredba = new byte[99999];
         SerialPort currentPort;
         bool portFound;
 
         public Form1()
         {
             InitializeComponent();
+            for (int a = 0; a <= 1000; a++)
+            {
+                naredba[a] = 80;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -242,7 +249,6 @@ namespace robotskaRuka
                     currentPort = new SerialPort(port, baud);
                     if (DetectArduino())
                     {
-                        cmbPort.Text = port;
                         portFound = true;
                         MessageBox.Show("Arduino je spojen na " + port);
                         txtStatus.Text = "Spreman!";
@@ -287,7 +293,6 @@ namespace robotskaRuka
                 currentPort.Write(buffer, 0, 11);
                 Thread.Sleep(1000);
                 int count = currentPort.BytesToRead;
-                txtTestBytes.Text = Convert.ToString(count);
                 string returnMessage = "";
                 while (count > 0)
                 {
@@ -578,20 +583,88 @@ namespace robotskaRuka
             }
         }
 
-        // slanje svih pozicija odjednom
-        private void btnPosaljiSve_Click(object sender, EventArgs e)
+        // spremanje pozicija
+        private void btnSpremi_Click(object sender, EventArgs e)
         {
-            sendServo1();
-            sendServo2();
-            sendServo3();
-            sendServo4();
-        }
+            if (txtServoPos1.Text.Length == 0 || txtServoPos2.Text.Length == 0 || txtServoPos3.Text.Length == 0 || txtServoPos4.Text.Length == 0)
+            {
+                MessageBox.Show("Upiši kut.");
+            }
+            else if (Convert.ToInt32(txtServoPos1.Text) > 175 || Convert.ToInt32(txtServoPos2.Text) > 175 || Convert.ToInt32(txtServoPos3.Text) > 175 || Convert.ToInt32(txtServoPos4.Text) > 175)
+            {
+                MessageBox.Show("Kut mora biti manji od 175°.");
+            }
+            else if (Convert.ToInt32(txtServoPos1.Text) < 5 || Convert.ToInt32(txtServoPos2.Text) < 5 || Convert.ToInt32(txtServoPos3.Text) < 5 || Convert.ToInt32(txtServoPos4.Text) < 5)
+            {
+                MessageBox.Show("Kut mora biti veći od 5°.");
+            }
+            else
+            {
+                txtPozicija.Text = Convert.ToString(pozicija);
+                try
+                {
+                    if (pozicija > 1 && pozicija <= 999)
+                    {
+                        brojNaredbe = brojNaredbe + 4;
+                        naredba[brojNaredbe] = Convert.ToByte(txtServoPos1.Text);
+                        txtStatus.AppendText("Hvataljka: " +
+                            "\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe] + "\n");
+                        naredba[brojNaredbe + 1] = Convert.ToByte(txtServoPos2.Text);
+                        txtStatus.AppendText("Lakat: " +
+                             "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe + 1] + "\n");
+                        naredba[brojNaredbe + 2] = Convert.ToByte(txtServoPos3.Text);
+                        txtStatus.AppendText("Rame: " +
+                             "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe + 2] + "\n");
+                        naredba[brojNaredbe + 3] = Convert.ToByte(txtServoPos4.Text);
+                        txtStatus.AppendText("Baza: " +
+                             "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe + 3] + "\n");
+                        txtStatus.AppendText("\nSpremljena pozicija " + pozicija + ". " + "\n");
+                        pozicija++;
 
-        // otvaranje forme za unos 5 pozicija
-        private void button2_Click(object sender, EventArgs e)
-        {
-            slanje frmSlanje2 = new slanje();
-            frmSlanje2.Show();
+                        if (pozicija > 999)
+                        {
+                            btnSpremi.Enabled = false;
+                            MessageBox.Show("Najveći broj pozicija je postignut.");
+
+                        }
+
+                    }
+                    else if (pozicija == 1)
+                    {
+
+                        brojNaredbe = 0;
+                        naredba[brojNaredbe] = Convert.ToByte(txtServoPos1.Text);
+                        txtStatus.AppendText("Hvataljka: " +
+                            "\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe] + "\n");
+                        naredba[brojNaredbe + 1] = Convert.ToByte(txtServoPos2.Text);
+                        txtStatus.AppendText("Lakat: " +
+                             "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe + 1] + "\n");
+                        naredba[brojNaredbe + 2] = Convert.ToByte(txtServoPos3.Text);
+                        txtStatus.AppendText("Rame: " +
+                             "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe + 2] + "\n");
+                        naredba[brojNaredbe + 3] = Convert.ToByte(txtServoPos4.Text);
+                        txtStatus.AppendText("Baza: " +
+                             "\t\tPozicija: " + pozicija + "\t\tKut: " + naredba[brojNaredbe + 3] + "\n");
+                        txtStatus.AppendText("\nSpremljena pozicija " + pozicija + ". " + "\n");
+                        pozicija++;
+
+                        if (pozicija > 999)
+                        {
+                            btnSpremi.Enabled = false;
+                            MessageBox.Show("Najveći broj pozicija je postignut.");
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Najveći broj pozicija je postignut.");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Neka greška");
+                }
+            }
         }
 
         private void txtServoPos1_TextChanged(object sender, EventArgs e)
@@ -657,5 +730,140 @@ namespace robotskaRuka
                 scrollServo4.Value = Convert.ToInt16(txtServoPos4.Text);
             }
         }
+
+        private void btnPosaljiSveKutove_Click(object sender, EventArgs e)
+        {
+            sendServo1();
+            sendServo2();
+            sendServo3();
+            sendServo4();
+        }
+
+        private void btnPosaljiPozicije_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int polje = 0;
+                int koraci = pozicija;
+
+                for (int brojacKoraka = 1; brojacKoraka <= koraci + 1; brojacKoraka++)
+                {
+                    if (brojacKoraka == koraci + 1)
+                    {
+                        byte[] buffer = new byte[11];
+                        buffer[0] = Convert.ToByte(16);
+                        buffer[1] = Convert.ToByte(101);
+                        buffer[2] = Convert.ToByte(0);
+                        buffer[3] = Convert.ToByte(0);
+                        buffer[4] = Convert.ToByte(0);
+                        buffer[5] = Convert.ToByte(0);
+                        buffer[6] = Convert.ToByte(0);
+                        buffer[7] = Convert.ToByte(0);
+                        buffer[8] = Convert.ToByte(0);
+                        buffer[9] = Convert.ToByte(0);
+                        buffer[10] = Convert.ToByte(4);
+
+                        int intReturnASCII = 0;
+                        char charReturnValue = (Char)intReturnASCII;
+
+                        currentPort.Open();
+                        currentPort.Write(buffer, 0, 11);
+                        Thread.Sleep(1000);
+
+                        try
+                        {
+                            string returnMessage = "";
+                            while (!returnMessage.Contains("Gotov"))
+                            {
+                                int count = currentPort.BytesToRead;
+                                while (count > 0)
+                                {
+                                    intReturnASCII = currentPort.ReadByte();
+                                    returnMessage = returnMessage + Convert.ToChar(intReturnASCII);
+                                    count--;
+                                }
+                            }
+                            if (returnMessage.Contains("Gotov"))
+                            {
+                                //    MessageBox.Show("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + servoSend + ".");
+                                txtStatus.AppendText("\nGotov!\n");
+                                currentPort.Close();
+                            }
+                            else
+                            {
+                                txtStatus.AppendText("Nešto ne valja! \n");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nema komunikacije!");
+
+                        }
+                    }
+                    else
+                    {
+                        byte[] buffer = new byte[11];
+                        buffer[0] = Convert.ToByte(16);
+                        buffer[1] = Convert.ToByte(121);
+                        buffer[2] = Convert.ToByte(brojacKoraka);
+                        buffer[3] = naredba[polje];
+                        buffer[4] = Convert.ToByte(4);
+                        buffer[5] = naredba[polje + 1];
+                        buffer[6] = Convert.ToByte(4);
+                        buffer[7] = naredba[polje + 2];
+                        buffer[8] = Convert.ToByte(4);
+                        buffer[9] = naredba[polje + 3];
+                        buffer[10] = Convert.ToByte(4);
+
+                        int intReturnASCII = 0;
+                        char charReturnValue = (Char)intReturnASCII;
+
+                        currentPort.Open();
+                        currentPort.Write(buffer, 0, 11);
+                        Thread.Sleep(1000);
+
+                        try
+                        {
+                            string returnMessage = "";
+                            while (!returnMessage.Contains("Pozicija"))
+                            {
+                                int count = currentPort.BytesToRead;
+                                while (count > 0)
+                                {
+                                    intReturnASCII = currentPort.ReadByte();
+                                    returnMessage = returnMessage + Convert.ToChar(intReturnASCII);
+                                    count--;
+                                }
+                            }
+                            if (returnMessage.Contains("Pozicija"))
+                            {
+                                //    MessageBox.Show("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + servoSend + ".");
+                                txtStatus.AppendText("Primljeno! Pozicija: " + brojacKoraka + ". servo: " + ".\n");
+                                currentPort.Close();
+                            }
+                            else
+                            {
+                                txtStatus.AppendText("Nešto ne valja! \n");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Nema komunikacije!");
+
+                        }
+
+                        currentPort.Close();
+                        polje = polje + 4;
+
+
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Slanje nije uspjelo.");
+            }
+        }
+
     }
 }

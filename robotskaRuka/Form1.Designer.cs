@@ -37,12 +37,10 @@
             this.btnServo3 = new System.Windows.Forms.Button();
             this.txtServoPos3 = new System.Windows.Forms.TextBox();
             this.labelServo3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.scrollServo1 = new System.Windows.Forms.HScrollBar();
             this.scrollServo2 = new System.Windows.Forms.HScrollBar();
             this.scrollServo3 = new System.Windows.Forms.HScrollBar();
-            this.cmbPort = new System.Windows.Forms.ComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmbBaudRate = new System.Windows.Forms.ComboBox();
             this.btnLedOn = new System.Windows.Forms.Button();
@@ -58,7 +56,7 @@
             this.scrollServo4 = new System.Windows.Forms.HScrollBar();
             this.txtServoPos4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnPosaljiSve = new System.Windows.Forms.Button();
+            this.btnSpremi = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.servo4Vise = new System.Windows.Forms.Button();
             this.servo4Manje = new System.Windows.Forms.Button();
@@ -73,7 +71,11 @@
             this.servo2Manje = new System.Windows.Forms.Button();
             this.servo1Vise = new System.Windows.Forms.Button();
             this.servo1Manje = new System.Windows.Forms.Button();
-            this.txtTestBytes = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPozicija = new System.Windows.Forms.TextBox();
+            this.btnPosaljiSveKutove = new System.Windows.Forms.Button();
+            this.btnPosaljiPozicije = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLedOn)).BeginInit();
@@ -87,7 +89,7 @@
             // 
             this.labelServo1.AutoSize = true;
             this.labelServo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelServo1.Location = new System.Drawing.Point(22, 81);
+            this.labelServo1.Location = new System.Drawing.Point(343, 35);
             this.labelServo1.Name = "labelServo1";
             this.labelServo1.Size = new System.Drawing.Size(52, 13);
             this.labelServo1.TabIndex = 2;
@@ -96,7 +98,7 @@
             // txtServoPos1
             // 
             this.txtServoPos1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtServoPos1.Location = new System.Drawing.Point(185, 104);
+            this.txtServoPos1.Location = new System.Drawing.Point(506, 58);
             this.txtServoPos1.Name = "txtServoPos1";
             this.txtServoPos1.Size = new System.Drawing.Size(101, 47);
             this.txtServoPos1.TabIndex = 3;
@@ -105,7 +107,7 @@
             // txtServoPos2
             // 
             this.txtServoPos2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtServoPos2.Location = new System.Drawing.Point(185, 185);
+            this.txtServoPos2.Location = new System.Drawing.Point(506, 139);
             this.txtServoPos2.Name = "txtServoPos2";
             this.txtServoPos2.Size = new System.Drawing.Size(101, 47);
             this.txtServoPos2.TabIndex = 8;
@@ -115,7 +117,7 @@
             // 
             this.labelServo2.AutoSize = true;
             this.labelServo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelServo2.Location = new System.Drawing.Point(22, 162);
+            this.labelServo2.Location = new System.Drawing.Point(343, 116);
             this.labelServo2.Name = "labelServo2";
             this.labelServo2.Size = new System.Drawing.Size(34, 13);
             this.labelServo2.TabIndex = 7;
@@ -123,7 +125,7 @@
             // 
             // btnServo3
             // 
-            this.btnServo3.Location = new System.Drawing.Point(289, 269);
+            this.btnServo3.Location = new System.Drawing.Point(610, 223);
             this.btnServo3.Name = "btnServo3";
             this.btnServo3.Size = new System.Drawing.Size(77, 47);
             this.btnServo3.TabIndex = 14;
@@ -134,7 +136,7 @@
             // txtServoPos3
             // 
             this.txtServoPos3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtServoPos3.Location = new System.Drawing.Point(185, 269);
+            this.txtServoPos3.Location = new System.Drawing.Point(506, 223);
             this.txtServoPos3.Name = "txtServoPos3";
             this.txtServoPos3.Size = new System.Drawing.Size(101, 47);
             this.txtServoPos3.TabIndex = 13;
@@ -144,27 +146,17 @@
             // 
             this.labelServo3.AutoSize = true;
             this.labelServo3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelServo3.Location = new System.Drawing.Point(22, 247);
+            this.labelServo3.Location = new System.Drawing.Point(343, 201);
             this.labelServo3.Name = "labelServo3";
             this.labelServo3.Size = new System.Drawing.Size(35, 13);
             this.labelServo3.TabIndex = 12;
             this.labelServo3.Text = "Rame";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(327, 425);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 43);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Pošalji niz";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // scrollServo1
             // 
-            this.scrollServo1.Location = new System.Drawing.Point(79, 77);
+            this.scrollServo1.Location = new System.Drawing.Point(400, 31);
             this.scrollServo1.Maximum = 89;
-            this.scrollServo1.Minimum = 15;
+            this.scrollServo1.Minimum = 5;
             this.scrollServo1.Name = "scrollServo1";
             this.scrollServo1.Size = new System.Drawing.Size(287, 17);
             this.scrollServo1.SmallChange = 5;
@@ -174,7 +166,7 @@
             // 
             // scrollServo2
             // 
-            this.scrollServo2.Location = new System.Drawing.Point(79, 158);
+            this.scrollServo2.Location = new System.Drawing.Point(400, 112);
             this.scrollServo2.Maximum = 184;
             this.scrollServo2.Minimum = 5;
             this.scrollServo2.Name = "scrollServo2";
@@ -186,7 +178,7 @@
             // 
             // scrollServo3
             // 
-            this.scrollServo3.Location = new System.Drawing.Point(79, 243);
+            this.scrollServo3.Location = new System.Drawing.Point(400, 197);
             this.scrollServo3.Maximum = 184;
             this.scrollServo3.Minimum = 5;
             this.scrollServo3.Name = "scrollServo3";
@@ -195,26 +187,6 @@
             this.scrollServo3.TabIndex = 22;
             this.scrollServo3.Value = 90;
             this.scrollServo3.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollServo3_Scroll);
-            // 
-            // cmbPort
-            // 
-            this.cmbPort.Enabled = false;
-            this.cmbPort.FormattingEnabled = true;
-            this.cmbPort.Items.AddRange(new object[] {
-            "COM1",
-            "COM2",
-            "COM3",
-            "COM4",
-            "COM5",
-            "COM6",
-            "COM7",
-            "COM8"});
-            this.cmbPort.Location = new System.Drawing.Point(382, 73);
-            this.cmbPort.Name = "cmbPort";
-            this.cmbPort.Size = new System.Drawing.Size(65, 21);
-            this.cmbPort.Sorted = true;
-            this.cmbPort.TabIndex = 26;
-            this.cmbPort.Text = "COM1";
             // 
             // imageList1
             // 
@@ -234,7 +206,7 @@
             "115200",
             "230400",
             "250000"});
-            this.cmbBaudRate.Location = new System.Drawing.Point(382, 104);
+            this.cmbBaudRate.Location = new System.Drawing.Point(703, 113);
             this.cmbBaudRate.Name = "cmbBaudRate";
             this.cmbBaudRate.Size = new System.Drawing.Size(65, 21);
             this.cmbBaudRate.TabIndex = 29;
@@ -242,7 +214,7 @@
             // 
             // btnLedOn
             // 
-            this.btnLedOn.Location = new System.Drawing.Point(379, 200);
+            this.btnLedOn.Location = new System.Drawing.Point(700, 140);
             this.btnLedOn.Name = "btnLedOn";
             this.btnLedOn.Size = new System.Drawing.Size(68, 25);
             this.btnLedOn.TabIndex = 31;
@@ -252,7 +224,7 @@
             // 
             // btnLedOff
             // 
-            this.btnLedOff.Location = new System.Drawing.Point(379, 231);
+            this.btnLedOff.Location = new System.Drawing.Point(700, 171);
             this.btnLedOff.Name = "btnLedOff";
             this.btnLedOff.Size = new System.Drawing.Size(68, 25);
             this.btnLedOff.TabIndex = 32;
@@ -262,7 +234,7 @@
             // 
             // btnAuto
             // 
-            this.btnAuto.Location = new System.Drawing.Point(379, 132);
+            this.btnAuto.Location = new System.Drawing.Point(700, 31);
             this.btnAuto.Name = "btnAuto";
             this.btnAuto.Size = new System.Drawing.Size(68, 62);
             this.btnAuto.TabIndex = 36;
@@ -272,7 +244,7 @@
             // 
             // btnServo2
             // 
-            this.btnServo2.Location = new System.Drawing.Point(289, 185);
+            this.btnServo2.Location = new System.Drawing.Point(610, 139);
             this.btnServo2.Name = "btnServo2";
             this.btnServo2.Size = new System.Drawing.Size(77, 47);
             this.btnServo2.TabIndex = 37;
@@ -282,7 +254,7 @@
             // 
             // btnServo1
             // 
-            this.btnServo1.Location = new System.Drawing.Point(289, 104);
+            this.btnServo1.Location = new System.Drawing.Point(610, 58);
             this.btnServo1.Name = "btnServo1";
             this.btnServo1.Size = new System.Drawing.Size(77, 47);
             this.btnServo1.TabIndex = 38;
@@ -297,7 +269,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(471, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(780, 24);
             this.menuStrip1.TabIndex = 43;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -311,7 +283,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 33);
+            this.label2.Location = new System.Drawing.Point(26, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 47;
@@ -319,14 +291,15 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(25, 49);
+            this.txtStatus.Location = new System.Drawing.Point(29, 58);
+            this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(422, 20);
+            this.txtStatus.Size = new System.Drawing.Size(311, 296);
             this.txtStatus.TabIndex = 46;
             // 
             // brnServo4
             // 
-            this.brnServo4.Location = new System.Drawing.Point(289, 353);
+            this.brnServo4.Location = new System.Drawing.Point(610, 307);
             this.brnServo4.Name = "brnServo4";
             this.brnServo4.Size = new System.Drawing.Size(77, 47);
             this.brnServo4.TabIndex = 61;
@@ -336,7 +309,7 @@
             // 
             // scrollServo4
             // 
-            this.scrollServo4.Location = new System.Drawing.Point(79, 326);
+            this.scrollServo4.Location = new System.Drawing.Point(400, 280);
             this.scrollServo4.Maximum = 184;
             this.scrollServo4.Minimum = 5;
             this.scrollServo4.Name = "scrollServo4";
@@ -349,7 +322,7 @@
             // txtServoPos4
             // 
             this.txtServoPos4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtServoPos4.Location = new System.Drawing.Point(185, 353);
+            this.txtServoPos4.Location = new System.Drawing.Point(506, 307);
             this.txtServoPos4.Name = "txtServoPos4";
             this.txtServoPos4.Size = new System.Drawing.Size(101, 47);
             this.txtServoPos4.TabIndex = 58;
@@ -359,21 +332,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(22, 330);
+            this.label3.Location = new System.Drawing.Point(343, 284);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 57;
             this.label3.Text = "Baza";
             // 
-            // btnPosaljiSve
+            // btnSpremi
             // 
-            this.btnPosaljiSve.Location = new System.Drawing.Point(379, 326);
-            this.btnPosaljiSve.Name = "btnPosaljiSve";
-            this.btnPosaljiSve.Size = new System.Drawing.Size(68, 74);
-            this.btnPosaljiSve.TabIndex = 62;
-            this.btnPosaljiSve.Text = "Pošalji sve";
-            this.btnPosaljiSve.UseVisualStyleBackColor = true;
-            this.btnPosaljiSve.Click += new System.EventHandler(this.btnPosaljiSve_Click);
+            this.btnSpremi.Location = new System.Drawing.Point(29, 367);
+            this.btnSpremi.Name = "btnSpremi";
+            this.btnSpremi.Size = new System.Drawing.Size(68, 48);
+            this.btnSpremi.TabIndex = 62;
+            this.btnSpremi.Text = "Spremi poziciju";
+            this.btnSpremi.UseVisualStyleBackColor = true;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
             // pictureBox4
             // 
@@ -381,7 +354,7 @@
             this.pictureBox4.BackgroundImage = global::robotskaRuka.Properties.Resources.servo_color_512;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.ErrorImage = global::robotskaRuka.Properties.Resources.Servo_01_512;
-            this.pictureBox4.Location = new System.Drawing.Point(25, 353);
+            this.pictureBox4.Location = new System.Drawing.Point(346, 307);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(47, 47);
             this.pictureBox4.TabIndex = 60;
@@ -392,7 +365,7 @@
             this.servo4Vise.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo4Vise.BackgroundImage = global::robotskaRuka.Properties.Resources.desno;
             this.servo4Vise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo4Vise.Location = new System.Drawing.Point(132, 353);
+            this.servo4Vise.Location = new System.Drawing.Point(453, 307);
             this.servo4Vise.Name = "servo4Vise";
             this.servo4Vise.Size = new System.Drawing.Size(47, 47);
             this.servo4Vise.TabIndex = 56;
@@ -404,7 +377,7 @@
             this.servo4Manje.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo4Manje.BackgroundImage = global::robotskaRuka.Properties.Resources.lijevo1;
             this.servo4Manje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo4Manje.Location = new System.Drawing.Point(79, 353);
+            this.servo4Manje.Location = new System.Drawing.Point(400, 307);
             this.servo4Manje.Name = "servo4Manje";
             this.servo4Manje.Size = new System.Drawing.Size(47, 47);
             this.servo4Manje.TabIndex = 55;
@@ -415,7 +388,7 @@
             // 
             this.picLedOn.BackgroundImage = global::robotskaRuka.Properties.Resources.zelenaLed;
             this.picLedOn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLedOn.Location = new System.Drawing.Point(379, 269);
+            this.picLedOn.Location = new System.Drawing.Point(700, 209);
             this.picLedOn.Name = "picLedOn";
             this.picLedOn.Size = new System.Drawing.Size(68, 47);
             this.picLedOn.TabIndex = 42;
@@ -426,7 +399,7 @@
             // 
             this.picLedOff.BackgroundImage = global::robotskaRuka.Properties.Resources.crvenaLed;
             this.picLedOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLedOff.Location = new System.Drawing.Point(379, 269);
+            this.picLedOff.Location = new System.Drawing.Point(700, 209);
             this.picLedOff.Name = "picLedOff";
             this.picLedOff.Size = new System.Drawing.Size(68, 47);
             this.picLedOff.TabIndex = 41;
@@ -438,7 +411,7 @@
             this.pictureBox3.BackgroundImage = global::robotskaRuka.Properties.Resources.servo_color_512;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.ErrorImage = global::robotskaRuka.Properties.Resources.Servo_01_512;
-            this.pictureBox3.Location = new System.Drawing.Point(25, 269);
+            this.pictureBox3.Location = new System.Drawing.Point(346, 223);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(47, 47);
             this.pictureBox3.TabIndex = 25;
@@ -450,7 +423,7 @@
             this.pictureBox2.BackgroundImage = global::robotskaRuka.Properties.Resources.servo_color_512;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.ErrorImage = global::robotskaRuka.Properties.Resources.Servo_01_512;
-            this.pictureBox2.Location = new System.Drawing.Point(25, 185);
+            this.pictureBox2.Location = new System.Drawing.Point(346, 139);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(47, 47);
             this.pictureBox2.TabIndex = 24;
@@ -462,7 +435,7 @@
             this.pictureBox1.BackgroundImage = global::robotskaRuka.Properties.Resources.servo_color_512;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.ErrorImage = global::robotskaRuka.Properties.Resources.Servo_01_512;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 104);
+            this.pictureBox1.Location = new System.Drawing.Point(346, 58);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(47, 47);
             this.pictureBox1.TabIndex = 23;
@@ -473,7 +446,7 @@
             this.servo3Vise.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo3Vise.BackgroundImage = global::robotskaRuka.Properties.Resources.desno;
             this.servo3Vise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo3Vise.Location = new System.Drawing.Point(132, 269);
+            this.servo3Vise.Location = new System.Drawing.Point(453, 223);
             this.servo3Vise.Name = "servo3Vise";
             this.servo3Vise.Size = new System.Drawing.Size(47, 47);
             this.servo3Vise.TabIndex = 11;
@@ -485,7 +458,7 @@
             this.servo3Manje.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo3Manje.BackgroundImage = global::robotskaRuka.Properties.Resources.lijevo1;
             this.servo3Manje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo3Manje.Location = new System.Drawing.Point(79, 269);
+            this.servo3Manje.Location = new System.Drawing.Point(400, 223);
             this.servo3Manje.Name = "servo3Manje";
             this.servo3Manje.Size = new System.Drawing.Size(47, 47);
             this.servo3Manje.TabIndex = 10;
@@ -497,7 +470,7 @@
             this.servo2Vise.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo2Vise.BackgroundImage = global::robotskaRuka.Properties.Resources.desno;
             this.servo2Vise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo2Vise.Location = new System.Drawing.Point(132, 185);
+            this.servo2Vise.Location = new System.Drawing.Point(453, 139);
             this.servo2Vise.Name = "servo2Vise";
             this.servo2Vise.Size = new System.Drawing.Size(47, 47);
             this.servo2Vise.TabIndex = 6;
@@ -509,7 +482,7 @@
             this.servo2Manje.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo2Manje.BackgroundImage = global::robotskaRuka.Properties.Resources.lijevo1;
             this.servo2Manje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo2Manje.Location = new System.Drawing.Point(79, 185);
+            this.servo2Manje.Location = new System.Drawing.Point(400, 139);
             this.servo2Manje.Name = "servo2Manje";
             this.servo2Manje.Size = new System.Drawing.Size(47, 47);
             this.servo2Manje.TabIndex = 5;
@@ -521,7 +494,7 @@
             this.servo1Vise.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo1Vise.BackgroundImage = global::robotskaRuka.Properties.Resources.desno;
             this.servo1Vise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo1Vise.Location = new System.Drawing.Point(132, 104);
+            this.servo1Vise.Location = new System.Drawing.Point(453, 58);
             this.servo1Vise.Name = "servo1Vise";
             this.servo1Vise.Size = new System.Drawing.Size(47, 47);
             this.servo1Vise.TabIndex = 1;
@@ -533,28 +506,70 @@
             this.servo1Manje.BackColor = System.Drawing.SystemColors.HighlightText;
             this.servo1Manje.BackgroundImage = global::robotskaRuka.Properties.Resources.lijevo1;
             this.servo1Manje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.servo1Manje.Location = new System.Drawing.Point(79, 104);
+            this.servo1Manje.Location = new System.Drawing.Point(400, 58);
             this.servo1Manje.Name = "servo1Manje";
             this.servo1Manje.Size = new System.Drawing.Size(47, 47);
             this.servo1Manje.TabIndex = 0;
             this.servo1Manje.UseVisualStyleBackColor = false;
             this.servo1Manje.Click += new System.EventHandler(this.servo1Manje_Click);
             // 
-            // txtTestBytes
+            // label1
             // 
-            this.txtTestBytes.Location = new System.Drawing.Point(28, 425);
-            this.txtTestBytes.Name = "txtTestBytes";
-            this.txtTestBytes.Size = new System.Drawing.Size(100, 20);
-            this.txtTestBytes.TabIndex = 63;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(700, 97);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Baud rate:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(103, 374);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Pozicija:";
+            // 
+            // txtPozicija
+            // 
+            this.txtPozicija.Location = new System.Drawing.Point(103, 390);
+            this.txtPozicija.Name = "txtPozicija";
+            this.txtPozicija.Size = new System.Drawing.Size(46, 20);
+            this.txtPozicija.TabIndex = 65;
+            // 
+            // btnPosaljiSveKutove
+            // 
+            this.btnPosaljiSveKutove.Location = new System.Drawing.Point(700, 280);
+            this.btnPosaljiSveKutove.Name = "btnPosaljiSveKutove";
+            this.btnPosaljiSveKutove.Size = new System.Drawing.Size(75, 74);
+            this.btnPosaljiSveKutove.TabIndex = 66;
+            this.btnPosaljiSveKutove.Text = "Pošalji sve kutove";
+            this.btnPosaljiSveKutove.UseVisualStyleBackColor = true;
+            this.btnPosaljiSveKutove.Click += new System.EventHandler(this.btnPosaljiSveKutove_Click);
+            // 
+            // btnPosaljiPozicije
+            // 
+            this.btnPosaljiPozicije.Location = new System.Drawing.Point(155, 367);
+            this.btnPosaljiPozicije.Name = "btnPosaljiPozicije";
+            this.btnPosaljiPozicije.Size = new System.Drawing.Size(185, 48);
+            this.btnPosaljiPozicije.TabIndex = 67;
+            this.btnPosaljiPozicije.Text = "Pošalji sve pozicije";
+            this.btnPosaljiPozicije.UseVisualStyleBackColor = true;
+            this.btnPosaljiPozicije.Click += new System.EventHandler(this.btnPosaljiPozicije_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(471, 480);
-            this.Controls.Add(this.txtTestBytes);
-            this.Controls.Add(this.btnPosaljiSve);
+            this.ClientSize = new System.Drawing.Size(780, 453);
+            this.Controls.Add(this.btnPosaljiPozicije);
+            this.Controls.Add(this.btnPosaljiSveKutove);
+            this.Controls.Add(this.txtPozicija);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.brnServo4);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.scrollServo4);
@@ -572,14 +587,12 @@
             this.Controls.Add(this.btnLedOff);
             this.Controls.Add(this.btnLedOn);
             this.Controls.Add(this.cmbBaudRate);
-            this.Controls.Add(this.cmbPort);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.scrollServo3);
             this.Controls.Add(this.scrollServo2);
             this.Controls.Add(this.scrollServo1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnServo3);
             this.Controls.Add(this.txtServoPos3);
             this.Controls.Add(this.labelServo3);
@@ -630,7 +643,6 @@
         private System.Windows.Forms.Label labelServo3;
         private System.Windows.Forms.Button servo3Vise;
         private System.Windows.Forms.Button servo3Manje;
-        private System.Windows.Forms.Button button2;
         public System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.HScrollBar scrollServo1;
         private System.Windows.Forms.HScrollBar scrollServo2;
@@ -638,7 +650,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ComboBox cmbPort;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ComboBox cmbBaudRate;
         private System.Windows.Forms.Button btnLedOn;
@@ -659,8 +670,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button servo4Vise;
         private System.Windows.Forms.Button servo4Manje;
-        private System.Windows.Forms.Button btnPosaljiSve;
-        private System.Windows.Forms.TextBox txtTestBytes;
+        private System.Windows.Forms.Button btnSpremi;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPozicija;
+        private System.Windows.Forms.Button btnPosaljiSveKutove;
+        private System.Windows.Forms.Button btnPosaljiPozicije;
     }
 }
 
