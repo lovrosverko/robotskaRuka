@@ -236,6 +236,8 @@
             this.txtBrojKoraka.Name = "txtBrojKoraka";
             this.txtBrojKoraka.Size = new System.Drawing.Size(100, 20);
             this.txtBrojKoraka.TabIndex = 11;
+            this.txtBrojKoraka.TabStop = false;
+            this.txtBrojKoraka.TextChanged += new System.EventHandler(this.txtBrojKoraka_TextChanged);
             // 
             // label5
             // 
@@ -250,7 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 331);
+            this.ClientSize = new System.Drawing.Size(511, 331);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBrojKoraka);
             this.Controls.Add(this.pictureBox1);
@@ -273,7 +275,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "slanje";
             this.Text = "Slanje naredbi";
-            this.Load += new System.EventHandler(this.slanje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

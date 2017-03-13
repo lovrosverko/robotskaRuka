@@ -12,6 +12,7 @@ namespace robotskaRuka
         {
             InitializeComponent();
             //  btnSaveToTxt.Enabled = false;
+            sakrij();
         }
         int brojNaredbe = 0;
 
@@ -479,11 +480,6 @@ namespace robotskaRuka
 
         }
 
-        private void slanje_Load(object sender, EventArgs e)
-        {
-            MessageBox.Show("Unesite broj pozicija!");
-        }
-
         private void sakrij()
 
         {
@@ -497,7 +493,7 @@ namespace robotskaRuka
             txtServo3.Enabled = false;
             txtServo4.Enabled = false;
         }
-        private void pokazi()
+        private void prikazi()
         {
             btnSpremi.Enabled = true;
             btnObrisi.Enabled = true;
@@ -507,6 +503,11 @@ namespace robotskaRuka
             txtServo2.Enabled = true;
             txtServo3.Enabled = true;
             txtServo4.Enabled = true;
+        }
+
+        private void txtBrojKoraka_TextChanged(object sender, EventArgs e)
+        {
+            prikazi();
         }
     }
 }
